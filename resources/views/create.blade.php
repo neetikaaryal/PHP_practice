@@ -14,12 +14,12 @@
   <form action="{{ route('store-blog') }}" method="post" enctype="multi/form-data">
     @csrf
   <div class="form-group">
-      <label for="id">User_id:</label>
-      <input type="id" class="form-control" id="ID" placeholder="Enter Id" name="id">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Title" name="title">
     </div>
     <div class="form-group">
-      <label for="name">User_name:</label>
-      <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+      <label for="body">Body</label>
+      <input type="text" class="form-control" id="body" placeholder="Enter blog" name="body">
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">

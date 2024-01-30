@@ -18,27 +18,19 @@
     <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Blog</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Email</th>
       </tr>
     </thead>
     <tbody>
+      @foreach($user as $value)
       <tr>
-        <td>Neetika</td>
-        <td>Aryal</td>
-        <td>Myblog</td>
+        <td>{{$value->title}}</td>
+        <td>{{$value->body}}</td>
+        <td>{{$value->email}}</td>
       </tr>
-      <tr>
-        <td>Sanzeev</td>
-        <td>Aryal</td>
-        <td>jsahjk</td>
-      </tr>
-      <tr>
-        <td>Sanjay</td>
-        <td>Aryal</td>
-        <td>class</td>
-      </tr>
+      @endforeach
     </tbody>
   </table>
 
