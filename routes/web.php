@@ -40,3 +40,5 @@ Route::get('/create', function() {
     return view('create');
 });
 
+Route::post('/store-blog', HomeController::class. '@store')->name('store-blog');
+

@@ -11,7 +11,8 @@
 
 <div class="container">
   <h2>Form</h2>
-  <form action="/">
+  <form action="{{ route('store-blog') }}" method="post" enctype="multi/form-data">
+    @csrf
   <div class="form-group">
       <label for="id">User_id:</label>
       <input type="id" class="form-control" id="ID" placeholder="Enter Id" name="id">
