@@ -88,6 +88,10 @@ class HomeController extends Controller
       $user = Posts::find($id);
       return view('home', compact('user'));
     }
+    public function blog()
+{
+    return view('blog');
+}
   }
 
 
