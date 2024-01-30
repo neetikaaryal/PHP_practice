@@ -55,5 +55,8 @@ Route::get('/posts/{post}', HomeController::class .'@show')->name('posts.show');
 Route::get('/posts/{post}/edit', HomeController::class .'@edit')->name('posts.edit');
 // updates a post
 Route::put('/posts/{post}', HomeController::class .'@update')->name('posts.update');
+
+
 // deletes a post
-Route::delete('/posts/{post}', HomeController::class .'@destroy')->name('posts.destroy');
+
+Route::get('/delete/{id}', HomeController::class .'@delete')->name('delete');

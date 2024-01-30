@@ -49,7 +49,7 @@ class HomeController extends Controller
       ]);
       $post = Post::find($id);
       $post->update($request->all());
-      return redirect()->route('posts.index')
+      return redirect()->route('home')
         ->with('success', 'Post updated successfully.');
     }
     /**
@@ -58,11 +58,12 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-      $post = Post::find($id);
-      $post->delete();
-      return redirect()->route('posts.index')
+      $user = Posts::find($id);
+
+      $user->delete();
+      return redirect()->back()
         ->with('success', 'Post deleted successfully');
     }
     // routes functions

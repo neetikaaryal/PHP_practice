@@ -18,17 +18,22 @@
     <table class="table">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Title</th>
         <th>Body</th>
         <th>Email</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach($user as $value)
       <tr>
+        <td>{{$value->id}}</td>
         <td>{{$value->title}}</td>
         <td>{{$value->body}}</td>
         <td>{{$value->email}}</td>
+        <td><a href="{{url('/delete')}}/{{$value->id}}"><button type="button" class="btn btn-danger" >Delete</button></a>   </td>
+        <td><a href="/edit"><button type="button" class="btn btn-default" >Edit</button></a>   </td> 
       </tr>
       @endforeach
     </tbody>
