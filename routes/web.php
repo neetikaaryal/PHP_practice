@@ -42,6 +42,13 @@ Route::get('/create', function() {
 
 Route::post('/store-blog', HomeController::class. '@store')->name('store-blog');
 
+// deletes a post
+Route::get('/delete/{id}', HomeController::class .'@delete')->name('delete');
+
+// returns the form for editing a post
+Route::get('/edit/{id}', HomeController::class .'@edit')->name('edit');
+
+
 
 // returns the home page with all posts
 // Route::get('/', HomeController::class .'@index')->name('posts.index');
@@ -51,12 +58,9 @@ Route::get('/posts/create', HomeController::class . '@create')->name('posts.crea
 Route::post('/posts', HomeController::class .'@store')->name('posts.store');
 // returns a page that shows a full post
 Route::get('/posts/{post}', HomeController::class .'@show')->name('posts.show');
-// returns the form for editing a post
-Route::get('/posts/{post}/edit', HomeController::class .'@edit')->name('posts.edit');
+
 // updates a post
-Route::put('/posts/{post}', HomeController::class .'@update')->name('posts.update');
+Route::get('/update/{id}', HomeController::class .'@update')->name('update');
 
 
-// deletes a post
 
-Route::get('/delete/{id}', HomeController::class .'@delete')->name('delete');

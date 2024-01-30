@@ -47,8 +47,8 @@ class HomeController extends Controller
         'title' => 'required',
         'body' => 'required',
       ]);
-      $post = Post::find($id);
-      $post->update($request->all());
+      $user = Posts::find($id);
+      $user->update($request->all());
       return redirect()->route('home')
         ->with('success', 'Post updated successfully.');
     }
@@ -85,8 +85,8 @@ class HomeController extends Controller
     
     public function edit($id)
     {
-      $post = Post::find($id);
-      return view('posts.edit', compact('post'));
+      $user = Posts::find($id);
+      return view('home', compact('user'));
     }
   }
 
