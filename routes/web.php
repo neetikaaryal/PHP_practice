@@ -14,11 +14,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-// Route::get('/home', function () {
-//     Route::get('/home', [HomeController::class, 'home'])->name('home');
-//     // return view('welcome');
-//     return redirect('/home');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::get('/home' , HomeController::class . '@home')->name('home');
 
 // ---------Blog------------
