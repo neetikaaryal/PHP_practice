@@ -1,20 +1,39 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{{ asset('mystyle.css') }}">
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({
+        selector:'textarea',
+        menubar: false,
+        plugins: 'code',
+        toolbar: 'bold italic code'
+    });</script>
 </head>
 <body>
 
-<h2>HTML Forms</h2>
+    <h1>Blog Title</h1>
+    <h3>by Author</h3>
+    <form method="post">
 
-<form action="/action_page.php">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br><br>
-  <input type="submit" value="Submit">
-</form> 
+        <div>
+            <textarea name="content"></textarea>
+        </div>
+
+        <div>
+            <button>Send</button>
+        </div>
+
+    </form>
+
+    <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+        
+        <div><?= $purifier->purify($_POST['content']) ?></div>
+
+    <?php endif; ?>
 
 </body>
 </html>

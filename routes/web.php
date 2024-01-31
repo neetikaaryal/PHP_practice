@@ -49,6 +49,7 @@ Route::get('/posts/{post}', HomeController::class .'@show')->name('posts.show');
 // updates a post
 Route::get('/update/{id}', HomeController::class .'@update')->name('update');
 
+//..........Auth..............//
 
 Route::get('/dashboard', function () {
     return view('dashboard');
