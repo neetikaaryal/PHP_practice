@@ -100,10 +100,6 @@ class HomeController extends Controller
     return view('blog');
 }
 
-public function upload(Request $request)
-  {
-    echo $request->file('image')->store('uploads');
-  }
-  }
+}
 
 
