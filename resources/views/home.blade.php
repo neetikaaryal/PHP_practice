@@ -18,20 +18,22 @@
     <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
         <th>Title</th>
-        <th>Body</th>
-        <th>Email</th>
-        <th>Action</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Featured image</th>
+        <th>Categories</th>
+        <th>Type</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
       @foreach($user as $value)
       <tr>
-        <td>{{$value->id}}</td>
         <td>{{$value->title}}</td>
-        <td>{{$value->body}}</td>
-        <td>{{$value->email}}</td>
+        <td>{{$value->description}}</td>
+        <td>{{$value->author}}</td>
+        <td>{{$value->image}}</td>
         <td><a href="{{url('/delete')}}/{{$value->id}}"><button type="button" class="btn btn-danger" >Delete</button></a>   </td>
         <td><a href="{{url('/update')}}/{{$value->id}}"><button type="button" class="btn btn-default" >Update</button></a>   </td> 
       </tr>
