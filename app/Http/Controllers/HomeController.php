@@ -28,9 +28,9 @@ class HomeController extends Controller
         $user->description = $request->description;
         $user->author = $request->author;
         $user->image = $request->image;
-        $user->category = $request->category;
+        $user->tag = $request->tag;
         $user->type = $request->type;
-        
+        $user->status = $request->status;
      
         $user->save();
 

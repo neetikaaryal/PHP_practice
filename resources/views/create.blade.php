@@ -42,8 +42,8 @@
     </div>
 
     <div class="form-group">
-      <label for="category">Category</label>
-      <select name="category" id="category">
+      <label for="tag">Tag</label>
+      <select name="tag" id="tag">
     
       <option value="blog">Blog</option>
       <option value="offer">Offer</option>
@@ -65,7 +65,13 @@
       </select>
     </div>
 
-    
+    <div class="form-group">
+    <label for="status">Status</label>
+      <select name="status">
+        <option value="draft">Draft</option>
+        <option value="published">Published</option>
+      </select>
+    </div>
     <!-- .........body -->
     <!-- <div class="form-group">
       <label for="body">Body</label>
@@ -77,7 +83,7 @@
     </div> --> 
         <button>Send</button>
 
-   
+  </div>   
 
     <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
 

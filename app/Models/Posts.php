@@ -12,8 +12,9 @@ class Posts extends Model
         'description',
         'author',
         'image',
-        'category',
+        'tag',
         'type',
+        'status',
       ];
     // use HasFactory;
     // private $table = 'posts';
