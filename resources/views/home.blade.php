@@ -22,7 +22,7 @@
         <th>Description</th>
         <th>Author</th>
         <th>Featured image</th>
-        <th>Categories</th>
+        <th>Tag</th>
         <th>Type</th>
         <th>Status</th>
       </tr>
@@ -34,7 +34,7 @@
         <td>{{$value->description}}</td>
         <td>{{$value->author}}</td>
         <td>{{$value->image}}</td>
-        <td>{{$value->category}}</td>
+        <td>{{$value->tag}}</td>
         <td>{{$value->type}}</td>
         <td>{{$value->status}}</td>
         <td><a href="{{url('/delete')}}/{{$value->id}}"><button type="button" class="btn btn-danger" >Delete</button></a>   </td>
