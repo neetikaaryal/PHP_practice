@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 
 class TagController extends Controller
 {
@@ -35,7 +37,10 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request ->validate([
+            'name' => 'required',
+        ]);
+        Tag::create($validated);
     }
 
     /**

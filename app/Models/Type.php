@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    use HasFactory;
-    private $table = 'types';
+    // use HasFactory;
+    protected $fillable = [ 'name', ];
+     
 }

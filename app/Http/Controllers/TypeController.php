@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Models\Type;
+use Illuminate\Support\Facades\Route;
 
 class TypeController extends Controller
 {
@@ -35,7 +36,10 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request ->validate([
+            'name' => 'required',
+        ]);
+        Type::create($validated);
     }
 
     /**
@@ -46,7 +50,11 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        $validated = Type::find($id);
+
+        $validated->show();
+        return redirect()->back()
+          ->with('success', 'Post showed successfully');
     }
 
     /**
@@ -55,9 +63,13 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Type $type)
+    public function edit($id)
     {
-        //
+        $validated = Type::find($id);
+
+        $validated->edit();
+        return redirect()->back()
+          ->with('success', 'Post edited successfully');
     }
 
     /**
@@ -69,7 +81,11 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $validated = Type::find($id);
+
+        $validated->update();
+        return redirect()->back()
+          ->with('success', 'Post updated successfully');
     }
 
     /**
@@ -78,8 +94,12 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Type $type)
+    public function destroy($id)
     {
-        //
+        $validated = Type::find($id);
+
+        $validated->delete();
+        return redirect()->back()
+          ->with('success', 'Post deleted successfully');
     }
 }

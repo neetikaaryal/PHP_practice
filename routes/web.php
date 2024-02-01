@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TypeController;
+use App\Http\Controllers\TagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,3 +67,20 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//..................Tag..................//
+Route::get('/tag', function () {
+    return view('tag');
+});
+Route::post('/tags', TagController::class .'@store')->name('tags.store');
+
+Route::post('/store-tag', TagController::class .'@store')->name('store-tag');
+
+
+Route::get('/type',function() {
+    return view('type');
+});
+Route::post('/types', TypeController::class .'@store')->name('types.store');
+
+
+Route::post('/store-type', TypeController::class .'@store')->name('store-type');

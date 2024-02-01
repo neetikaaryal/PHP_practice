@@ -40,7 +40,7 @@ class HomeController extends Controller
         ->with('success','Post created successfully.');
         // return redirect('/');
     }
-
+    
     public function home()
     {
         $user = Posts::all();
