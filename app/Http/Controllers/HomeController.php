@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Posts;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+ 
 
 class HomeController extends Controller
 {
@@ -16,18 +17,24 @@ class HomeController extends Controller
  
     public function store(Request $request)
     {
-        
-        $user = new Posts;
-        $user->title = $request->title;
-        $user->body = $request->body;
-        $user->email = $request->email;
-
-        // $request->validate([
+       // $request->validate([
         //     'title' => 'required',
         //     'body' => 'required',
         //   ]);
         //   Post::create($request->all());
+  
+        $user = new Posts;
+        $user->title = $request->title;
+        $user->description = $request->description;
+        $user->author = $request->author;
+        $user->image = $request->image;
+        $user->category = $request->category;
+        $user->type = $request->type;
+        
+     
         $user->save();
+
+        $request->file('image')->store('public');
 
         return redirect('home')
         ->with('success','Post created successfully.');
@@ -92,6 +99,11 @@ class HomeController extends Controller
 {
     return view('blog');
 }
+
+public function upload(Request $request)
+  {
+    echo $request->file('image')->store('uploads');
+  }
   }
 
 
