@@ -68,9 +68,10 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit($id)
     {
-        //
+        $tag = Tag::find($id);
+        return view('edit_tag', compact('tag'));
     }
 
     /**
@@ -80,9 +81,13 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request -> validate([ 'name' => 'required']);
+        Tag::where('id', $id)->update($validated);
+        
+        return redirect('tag')
+          ->with('success', 'Post updated successfully');
     }
 
     /**
@@ -91,8 +96,11 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function delete($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->delete();
+        return redirect()->back()
+        ->with('success', 'Post deleted successfully');
     }
 }

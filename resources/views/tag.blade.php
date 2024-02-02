@@ -25,6 +25,8 @@
        @foreach($tags as $tag)
       <tr>
         <td>{{$tag->name}}</td>
+        <td><a href="{{route('delete-tag' ,$tag->id)}}"><button type="button" class="btn btn-danger" >Delete</button></a>   </td>
+        <td><a href="{{route('edit-tag' ,$tag->id)}}"><button type="button" class="btn btn-default" >Edit</button></a>   </td>
       </tr>
      @endforeach  
     </tbody>

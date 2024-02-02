@@ -129,8 +129,8 @@
         <td>{{$value->tag}}</td>
         <td>{{$value->type}}</td>
         <td>{{$value->status}}</td>
-        <td><a href="{{url('/delete')}}/{{$value->id}}"><button type="button" class="btn btn-danger" >Delete</button></a>   </td>
-        <td><a href="{{url('/update')}}/{{$value->id}}"><button type="button" class="btn btn-default" >Update</button></a>   </td> 
+        <td><a href="{{url('/delete-home')}}"><button type="button" class="btn btn-danger" >Delete</button></a>   </td>
+        <td><a href="{{url('/update')}}"><button type="button" class="btn btn-default" >Update</button></a>   </td> 
       </tr>
       @endforeach
     </tbody>

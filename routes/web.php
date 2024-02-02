@@ -35,7 +35,7 @@ Route::get('/upload',function(){
 Route::post('/store-blog', HomeController::class. '@store')->name('store-blog');
 
 // deletes a post
-Route::get('/delete/{id}', HomeController::class .'@delete')->name('delete');
+Route::get('/delete-home/{id}', HomeController::class .'@delete')->name('delete-home');
 
 // returns the form for editing a post
 Route::get('/edit/{id}', HomeController::class .'@edit')->name('edit');
@@ -52,7 +52,7 @@ Route::post('/posts', HomeController::class .'@store')->name('posts.store');
 Route::get('/posts/{post}', HomeController::class .'@show')->name('posts.show');
 
 // updates a post
-Route::get('/update/{id}', HomeController::class .'@update')->name('update');
+Route::get('/update-home/{id}', HomeController::class .'@update')->name('update-home');
 
 //..........Auth..............//
 
@@ -73,13 +73,16 @@ Route::get('/tag', TagController::class .'@tag')->name('tag');
 Route::post('/tags', TagController::class .'@store')->name('tags.store');
 
 Route::post('/store-tag', TagController::class .'@store')->name('store-tag');
-
-
-// Route::get('/type',function() {
-//     return view('type');
-// });
+Route::get('/delete-tag/{id}', TagController::class .'@delete')->name('delete-tag');
+Route::get('/edit-tag/{id}', TagController::class .'@edit')->name('edit-tag');
+Route::post('/update-tag/{id}', TagController::class .'@update')->name('update-tag');
+// ..................Type..................//
 Route::get('/type', TypeController::class .'@type')->name('type');
 Route::post('/add-types', TypeController::class .'@create')->name('add-types');
 Route::post('/types', TypeController::class .'@store')->name('types.store');
 
 Route::post('/store-type', TypeController::class .'@store')->name('store-type');
+
+Route::get('/delete-type/{id}', TypeController::class .'@delete')->name('delete-type');
+Route::get('/edit-type/{id}', TypeController::class .'@edit')->name('edit-type');
+Route::post('/update-type/{id}', TypeController::class .'@update')->name('update-type');

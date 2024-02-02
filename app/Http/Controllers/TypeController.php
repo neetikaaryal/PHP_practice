@@ -58,7 +58,7 @@ class TypeController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
 
@@ -70,7 +70,10 @@ class TypeController extends Controller
      */
     public function edit($id)
     {
-       //
+        $type = Type::find($id);
+        return view('edit_type', compact('type'));
+        // return redirect()->back()
+        //   ->with('success', 'Post edited successfully');
     }
 
     /**
@@ -80,12 +83,14 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(Request $request, $id)
     {
-        $validated = Type::find($id);
-
-        $validated->update();
-        return redirect()->back()
+        $validated = $request ->validate([
+            'name' => 'required',
+        ]);
+        Type::where('id', $id)->update($validated);
+        // $types->update();
+        return redirect('type')
           ->with('success', 'Post updated successfully');
     }
 
@@ -95,11 +100,10 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        $validated = Type::find($id);
-
-        $validated->delete();
+        $type = Type::find($id);
+        $type->delete();
         return redirect()->back()
           ->with('success', 'Post deleted successfully');
     }
