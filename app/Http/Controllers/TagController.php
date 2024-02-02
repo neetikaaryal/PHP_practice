@@ -16,7 +16,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return view('tag');
     }
 
     /**
@@ -26,9 +26,15 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tag');
     }
 
+    public function tag()
+    {
+        $tags = Tag::all();
+        $data = compact('tags');
+        return view('tag')->with($data);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -41,6 +47,8 @@ class TagController extends Controller
             'name' => 'required',
         ]);
         Tag::create($validated);
+        return redirect('tag')
+        ->with('success','Post created successfully.');
     }
 
     /**

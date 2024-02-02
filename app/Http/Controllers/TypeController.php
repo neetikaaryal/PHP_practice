@@ -15,7 +15,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('type');
     }
 
     /**
@@ -25,9 +25,15 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('type');
     }
 
+    public function type()
+    {
+        $types = Type::all();
+        $data = compact('types');
+        return view('type')->with($data);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -40,6 +46,8 @@ class TypeController extends Controller
             'name' => 'required',
         ]);
         Type::create($validated);
+        return redirect('type')
+        ->with('success','Post created successfully.');
     }
 
     /**
@@ -48,14 +56,11 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Type $type)
+    public function show($id)
     {
-        $validated = Type::find($id);
 
-        $validated->show();
-        return redirect()->back()
-          ->with('success', 'Post showed successfully');
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -65,11 +70,7 @@ class TypeController extends Controller
      */
     public function edit($id)
     {
-        $validated = Type::find($id);
-
-        $validated->edit();
-        return redirect()->back()
-          ->with('success', 'Post edited successfully');
+       //
     }
 
     /**

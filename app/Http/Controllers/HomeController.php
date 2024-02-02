@@ -44,8 +44,7 @@ class HomeController extends Controller
     public function home()
     {
         $user = Posts::all();
-        $data = compact('user');
-        return view('home')->with($data);
+        return view('home', compact('user'));
     }
 
     public function update(Request $request, $id)

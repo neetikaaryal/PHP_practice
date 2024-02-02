@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Tag</title>
+    <link rel="stylesheet" href="{{asset('mystyle.css')}}" />
 </head>
 <body>
 <form action="{{ route('store-tag') }}" method="post" enctype="multipart/form-data">
@@ -11,5 +12,23 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
+<h2>Tag-list</h2>
+<div class="container">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Tag</th>
+      </tr>
+    </thead>
+    <tbody>
+       @foreach($tags as $tag)
+      <tr>
+        <td>{{$tag->name}}</td>
+      </tr>
+     @endforeach  
+    </tbody>
+  </table>
+</div>
 </body>
 </html>

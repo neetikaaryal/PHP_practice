@@ -69,18 +69,17 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 //..................Tag..................//
-Route::get('/tag', function () {
-    return view('tag');
-});
+Route::get('/tag', TagController::class .'@tag')->name('tag');
 Route::post('/tags', TagController::class .'@store')->name('tags.store');
 
 Route::post('/store-tag', TagController::class .'@store')->name('store-tag');
 
 
-Route::get('/type',function() {
-    return view('type');
-});
+// Route::get('/type',function() {
+//     return view('type');
+// });
+Route::get('/type', TypeController::class .'@type')->name('type');
+Route::post('/add-types', TypeController::class .'@create')->name('add-types');
 Route::post('/types', TypeController::class .'@store')->name('types.store');
-
 
 Route::post('/store-type', TypeController::class .'@store')->name('store-type');
