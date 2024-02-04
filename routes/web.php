@@ -38,8 +38,7 @@ Route::post('/store-blog', HomeController::class. '@store')->name('store-blog');
 Route::get('/delete-home/{id}', HomeController::class .'@delete')->name('delete-home');
 
 // returns the form for editing a post
-Route::get('/edit/{id}', HomeController::class .'@edit')->name('edit');
-
+Route::get('/edit-home/{id}', HomeController::class .'@edit')->name('edit-home');
 
 
 // returns the home page with all posts
@@ -52,7 +51,7 @@ Route::post('/posts', HomeController::class .'@store')->name('posts.store');
 Route::get('/posts/{post}', HomeController::class .'@show')->name('posts.show');
 
 // updates a post
-Route::get('/update-home/{id}', HomeController::class .'@update')->name('update-home');
+Route::post('/update-home/{id}', HomeController::class .'@update')->name('update-home');
 
 //..........Auth..............//
 

@@ -18,7 +18,7 @@
 <body>
 <div class="container">
   <h2>Form</h2>
-  <form action="{{ route('store-blog') }}" method="post" enctype="multipart/form-data">
+  <form action="{{ route('update-home', $user->id) }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="title">Title</label>
@@ -74,22 +74,8 @@
    
         <button>Send</button>
 
-  </div>   
+</div>   
 
-    <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
-
-    <div><?= $purifier->purify($_POST['content']) ?></div>
-
-    <?php endif; ?>
-    <!-- /bodyend -->
-  
-
-  <!-- file upload -->
-<!-- <div class="mb-3">
-  <label for="formFile" class="form-label">Upload File:</label>
-  <input class="form-control" type="file" id="formFile">
-  <button type="submit" class="btn btn-default">Upload</button>
-</div> -->
   </form>
 
   

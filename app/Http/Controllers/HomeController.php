@@ -49,14 +49,19 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {
-      $request->validate([
+      $validated = $request->validate([
         'title' => 'required',
-        'body' => 'required',
+        'description' => 'required',
+        'author' => 'required',
+        'image' => 'required',
+        'tag' => 'required',
+        'type' => 'required',
+        'status' => 'required',
       ]);
-      $user = Posts::find($id);
-      $user->update($request->all());
-      return redirect()->route('home')
-        ->with('success', 'Post updated successfully.');
+      
+      Posts::where('id', $id)->update($validated);
+      return redirect('home')
+          ->with('success', 'Post updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -92,8 +97,9 @@ class HomeController extends Controller
     public function edit($id)
     {
       $user = Posts::find($id);
-      return view('home', compact('user'));
+      return view('edit_home', compact('user'));
     }
+
     public function blog()
 {
     return view('blog');
