@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Posts;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
- 
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -27,15 +27,24 @@ class HomeController extends Controller
         $user->title = $request->title;
         $user->description = $request->description;
         $user->author = $request->author;
-        $user->image = $request->image;
+        // $user->image = $request->image;
         $user->tag = $request->tag;
         $user->type = $request->type;
         $user->status = $request->status;
-     
+        
+        if($request->hasFile('image')) {
+          
+          // $image = $request->file('image');
+          
+          $fileName = time() . '.'. $request->file('image')->extension();
+          $request->file('image')->storeAs('public', $fileName);
+          $user->image = $fileName;
+          
+         
+          
+        }
+       
         $user->save();
-
-        $request->file('image')->store('public');
-
         return redirect('home')
         ->with('success','Post created successfully.');
         // return redirect('/');
@@ -53,7 +62,7 @@ class HomeController extends Controller
         'title' => 'required',
         'description' => 'required',
         'author' => 'required',
-        'image' => 'required',
+        // 'image' => 'required',
         'tag' => 'required',
         'type' => 'required',
         'status' => 'required',

@@ -37,7 +37,7 @@
 
     <div class="form-group">
       <label for="image">Feature Image</label>
-      <input type="file" class="form-control" id="image" placeholder="Image" name="image">
+      <input type="file" class="form-control" id="image" placeholder="Image" name="image" >
     </div>
 
     <div class="form-group">
@@ -125,7 +125,7 @@
         <td>{{$value->title}}</td>
         <td>{{$value->description}}</td>
         <td>{{$value->author}}</td>
-        <td>{{$value->image}}</td>
+        <td><img src="{{ asset('storage/' . $value->image) }}" alt="User Image"></td>
         <td>{{$value->tag}}</td>
         <td>{{$value->type}}</td>
         <td>{{$value->status}}</td>

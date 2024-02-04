@@ -37,16 +37,18 @@
 
     <div class="form-group">
       <label for="image">Feature Image</label>
-      <input type="file" class="form-control" id="image" placeholder="Image" name="image" value="{{ $user->image }}">
+      <input type="file" class="form-control" id="image" placeholder="Image" name="image" >
+      <span>Current: {{ $user->image }}</span>
+
     </div>
 
     <div class="form-group">
       <label for="tag">Tag</label>
-      <select name="tag" id="tag">
-    
-      <option value="blog">Blog</option>
-      <option value="offer">Offer</option>
-      <option value="news">News</option>
+      <select name="tag" id="tag"  value="{{$user->tag}}">
+      <!-- <input value="{{$user->tag}}" > -->
+      <option value="blog" {{ $user->tag == 'blog' ? 'selected' : '' }}>Blog</option>
+      <option value="offer" {{ $user->tag == 'offer' ? 'selected' : '' }}>Offer</option>
+      <option value="news" {{ $user->tag == 'news' ? 'selected' : '' }}>News</option>
       
       </select>
       
@@ -55,11 +57,11 @@
 
     <div class="form-group">
       <label for="type">Type</label>
-      <select name="type" id="type">
-    
-      <option value="blog">Blog</option>
-      <option value="offer">Offer</option>
-      <option value="news">News</option>
+      <select name="type" id="type" value="{{$user->type}}">
+      <!-- <input value="{{$user->type}}"> -->
+      <option value="blog" {{ $user->type == 'blog' ? 'selected' : '' }}>Blog</option>
+      <option value="offer" {{ $user->type == 'offer' ? 'selected' : '' }}>Offer</option>
+      <option value="news" {{ $user->type == 'news' ? 'selected' : '' }}>News</option>
        
       </select>
     </div>
@@ -67,8 +69,8 @@
     <div class="form-group">
     <label for="status">Status</label>
       <select name="status">
-        <option value="draft">Draft</option>
-        <option value="published">Published</option>
+        <option value="draft" {{ $user->status == 'draft' ? 'selected' : '' }}>Draft</option>
+        <option value="published"  {{ $user->status == 'published' ? 'selected' : '' }}>Published</option>
       </select>
     </div>
    
