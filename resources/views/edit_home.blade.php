@@ -22,22 +22,22 @@
     @csrf
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" placeholder="Title" name="title">
+      <input type="text" class="form-control" id="title" placeholder="Title" name="title" value="{{ $user->title }}">
     </div>
 
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" placeholder="description" name="description">
+      <input type="text" class="form-control" id="description" placeholder="description" name="description" value="{{ $user->description }}">
     </div>
 
     <div class="form-group">
       <label for="author">Author</label>
-      <input type="text" class="form-control" id="author" placeholder="Name" name="author">
+      <input type="text" class="form-control" id="author" placeholder="Name" name="author" value="{{ $user->author }}">
     </div>
 
     <div class="form-group">
       <label for="image">Feature Image</label>
-      <input type="file" class="form-control" id="image" placeholder="Image" name="image">
+      <input type="file" class="form-control" id="image" placeholder="Image" name="image" value="{{ $user->image }}">
     </div>
 
     <div class="form-group">
@@ -73,9 +73,9 @@
     </div>
    
         <button>Send</button>
-
+  </form>
 </div>   
 
-  </form>
+  
 
   
