@@ -38,7 +38,7 @@
     <div class="form-group">
       <label for="image">Feature Image</label>
       <input type="file" class="form-control" id="image" placeholder="Image" name="image" >
-      <span>Current: {{ $user->image }}</span>
+      <img src="{{ asset('storage/' . $user->image) }}" alt="User Image">
 
     </div>
 

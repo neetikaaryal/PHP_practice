@@ -16,7 +16,6 @@
 
 </head>
 <body>
-
 <div class="container">
   <h2>Form</h2>
   <form action="{{ route('store-blog') }}" method="post" enctype="multipart/form-data">
