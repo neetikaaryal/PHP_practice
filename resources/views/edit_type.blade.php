@@ -1,3 +1,5 @@
+@extends('dashboard')
+@section('main-section')
 <html>
     <head>
     <meta charset="utf-8">
@@ -20,3 +22,4 @@
 </form>
 </body>
 </html>
+@endsection

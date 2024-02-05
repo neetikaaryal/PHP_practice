@@ -1,4 +1,5 @@
-
+@extends('dashboard')
+@section('main-section')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +78,7 @@
         <button>Send</button>
   </form>
 </div>   
-
+@endsection
   
 
   

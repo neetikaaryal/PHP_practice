@@ -1,3 +1,6 @@
+@extends('dashboard')
+@section('main-section')
+
 <html>
 <head>
     <title>Tag</title>
@@ -34,3 +37,4 @@
 </div>
 </body>
 </html>
+@endsection

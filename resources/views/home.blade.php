@@ -1,4 +1,5 @@
-
+@extends('dashboard')
+@section('main-section')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,3 +139,4 @@
 
 </body>
 </html>
+@endsection
