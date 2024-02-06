@@ -9,5 +9,9 @@ class Type extends Model
 {
     // use HasFactory;
     protected $fillable = [ 'name', ];
-     
+    
+    public function post(): BelongsTo
+{
+    return $this->belongsTo(Posts::class, 'type');
+}
 }

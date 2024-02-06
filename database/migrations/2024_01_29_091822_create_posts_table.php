@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('author');
             $table->string('image');
-            $table->text('tag');
-            $table->string('type');
+            $table->bigint('tag');
+            $table->bigint('type');
             $table->enum('status', ['published', 'draft']);
             $table->timestamps();
         });

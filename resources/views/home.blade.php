@@ -43,12 +43,12 @@
 
     <div class="form-group">
       <label for="tag">Tag</label>
-      <select name="tag" id="tag">
-    
-      <option value="blog">Blog</option>
-      <option value="offer">Offer</option>
-      <option value="news">News</option>
-      
+      <select name="tag" id="tag" class="form-control">
+      <option value="">Select Tag</option>
+
+        @foreach($tags as $tag)
+        <option value="{{$tag->id}}">{{$tag->name}}</option>
+        @endforeach
       </select>
       
     </div>
@@ -57,11 +57,11 @@
     <div class="form-group">
       <label for="type">Type</label>
       <select name="type" id="type">
-    
-      <option value="blog">Blog</option>
-      <option value="offer">Offer</option>
-      <option value="news">News</option>
-       
+      <option value="">Select Tag</option>
+
+      @foreach($types as $type)
+      <option value="{{$type->id}}">{{$type->name}}</option>
+       @endforeach
       </select>
     </div>
 
@@ -121,18 +121,23 @@
       </tr>
     </thead>
     <tbody>
+     
       @foreach($user as $value)
+      
       <tr>
         <td>{{$value->title}}</td>
         <td>{{$value->description}}</td>
         <td>{{$value->author}}</td>
         <td><img src="{{ asset('storage/' . $value->image) }}" alt="User Image"></td>
-        <td>{{$value->tag}}</td>
-        <td>{{$value->type}}</td>
+        @foreach($value->tags as $tag)
+        <td>{{$tag->name}}</td> 
+        @endforeach
+        <td>{{$value->types->name}}</td>
         <td>{{$value->status}}</td>
         <td><a href="{{route('delete-home' ,$value->id)}}"><button type="button" class="btn btn-danger" >Delete</button></a>   </td>
         <td><a href="{{route('edit-home' ,$value->id)}}"><button type="button" class="btn btn-default" >Edit</button></a>   </td> 
       </tr>
+      
       @endforeach
     </tbody>
   </table>

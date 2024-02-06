@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Posts;
+use App\Models\Type;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +16,7 @@ class HomeController extends Controller
     // {
     //     return view('home');
     // }
- 
+
     public function store(Request $request)
     {
        // $request->validate([
@@ -40,8 +42,6 @@ class HomeController extends Controller
           $request->file('image')->storeAs('public', $fileName);
           $user->image = $fileName;
           
-         
-          
         }
        
         $user->save();
@@ -52,8 +52,11 @@ class HomeController extends Controller
     
     public function home()
     {
-        $user = Posts::all();
-        return view('home', compact('user'));
+       $user = Posts::with('types','tags')->get();
+     
+       $tags = Tag::all();
+       $types = Type::all();
+        return view('home', compact('user', 'tags', 'types'));
     }
 
     public function update(Request $request, $id)
