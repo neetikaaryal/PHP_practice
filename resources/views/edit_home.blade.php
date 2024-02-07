@@ -45,12 +45,12 @@
 
     <div class="form-group">
       <label for="tag">Tag</label>
-      <select name="tag" id="tag"  value="{{$user->tag}}">
-      <!-- <input value="{{$user->tag}}" > -->
-      <option value="blog" {{ $user->tag == 'blog' ? 'selected' : '' }}>Blog</option>
-      <option value="offer" {{ $user->tag == 'offer' ? 'selected' : '' }}>Offer</option>
-      <option value="news" {{ $user->tag == 'news' ? 'selected' : '' }}>News</option>
-      
+      <select name="tag" id="tag" class="form-control">
+      <option value="">Select Tag</option>
+
+        @foreach($tags as $tag)
+        <option value="{{$tag->id}}">{{$tag->name}}</option>
+        @endforeach
       </select>
       
     </div>
@@ -58,12 +58,12 @@
 
     <div class="form-group">
       <label for="type">Type</label>
-      <select name="type" id="type" value="{{$user->type}}">
-      <!-- <input value="{{$user->type}}"> -->
-      <option value="blog" {{ $user->type == 'blog' ? 'selected' : '' }}>Blog</option>
-      <option value="offer" {{ $user->type == 'offer' ? 'selected' : '' }}>Offer</option>
-      <option value="news" {{ $user->type == 'news' ? 'selected' : '' }}>News</option>
-       
+      <select name="type" id="type">
+      <option value="">Select Tag</option>
+
+      @foreach($types as $type)
+      <option value="{{$type->id}}">{{$type->name}}</option>
+       @endforeach
       </select>
     </div>
 

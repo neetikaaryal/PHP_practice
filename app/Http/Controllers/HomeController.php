@@ -75,7 +75,9 @@ class HomeController extends Controller
     public function edit($id)
     {
       $user = Posts::find($id);
-      return view('edit_home', compact('user'));
+      $tags = Tag::all(); // Retrieve all tags from the database
+      $types = Type::all();
+      return view('edit_home', ['user' => $user,'tags' => $tags,'types' => $types]);
     }
 
     /**
@@ -121,10 +123,7 @@ class HomeController extends Controller
     $post = Posts::find($id);
     $post->status = $post->status == 'draft' ? 'published' : 'draft';
     $post->save();
-
-    session()->flash('status', 'Status has been changed');
-
-    return back();
+    return back()->with('status', 'Status has been changed');
     }
 
     }
