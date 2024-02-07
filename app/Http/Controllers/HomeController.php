@@ -15,11 +15,7 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-       // $request->validate([
-        //     'title' => 'required',
-        //     'body' => 'required',
-        //   ]);
-        //   Post::create($request->all());
+        try {
   
         $user = new Posts;
         $user->title = $request->title;
@@ -43,6 +39,11 @@ class HomeController extends Controller
         $user->save();
         return redirect('home')
         ->with('success','Post created successfully.');
+      
+        } catch (\Exception $e) {
+          return redirect('home')
+          ->with('error','Post creation failed.');
+        }
         // return redirect('/');
     }
     

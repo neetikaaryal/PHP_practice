@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" placeholder="description" name="description">
+      <input type="text" class="form-control" id="description" placeholder="Description" name="description">
     </div>
 
     <div class="form-group">
@@ -158,3 +158,9 @@
       alert('{{ session('success') }}');
   </script> 
 @endif   
+
+@if(session('error'))
+  <script>
+      alert('{{ session('error') }}');
+  </script> 
+@endif
