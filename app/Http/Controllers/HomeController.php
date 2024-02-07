@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
-    // public function blog()
-    // {
-    //     return view('home');
-    // }
 
     public function store(Request $request)
     {
@@ -75,6 +71,13 @@ class HomeController extends Controller
       return redirect('home')
           ->with('success', 'Post updated successfully');
     }
+
+    public function edit($id)
+    {
+      $user = Posts::find($id);
+      return view('edit_home', compact('user'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -102,21 +105,28 @@ class HomeController extends Controller
  
     public function show($id)
     {
-      $post = Post::find($id);
+      $post = Posts::find($id);
       return view('posts.show', compact('post'));
     }
     
-    public function edit($id)
-    {
-      $user = Posts::find($id);
-      return view('edit_home', compact('user'));
-    }
 
     public function blog()
-{
+   {
     return view('blog');
-}
+   }
+  
+   
+   public function changeStatus($id)
+   {
+    $post = Posts::find($id);
+    $post->status = $post->status == 'draft' ? 'published' : 'draft';
+    $post->save();
 
-}
+    session()->flash('status', 'Status has been changed');
+
+    return back();
+    }
+
+    }
 
 

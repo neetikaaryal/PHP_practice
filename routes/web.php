@@ -85,3 +85,7 @@ Route::post('/store-type', TypeController::class .'@store')->name('store-type');
 Route::get('/delete-type/{id}', TypeController::class .'@delete')->name('delete-type');
 Route::get('/edit-type/{id}', TypeController::class .'@edit')->name('edit-type');
 Route::post('/update-type/{id}', TypeController::class .'@update')->name('update-type');
+
+//..................Status..................//
+Route::get('/changeStatus/{id}', HomeController::class . '@changeStatus')->name('changeStatus');
+

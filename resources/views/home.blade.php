@@ -1,5 +1,6 @@
 @extends('dashboard')
 @section('main-section')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,15 +134,21 @@
         <td>{{$tag->name}}</td> 
         @endforeach
         <td>{{$value->types->name}}</td>
-        <td>{{$value->status}}</td>
-        <td><a href="{{route('delete-home' ,$value->id)}}"><button type="button" class="btn btn-danger" >Delete</button></a>   </td>
-        <td><a href="{{route('edit-home' ,$value->id)}}"><button type="button" class="btn btn-default" >Edit</button></a>   </td> 
-      </tr>
-      
-      @endforeach
+        <td><a href="{{ route('changeStatus', $value->id) }}" class="btn btn-default">{{ $value->status }}</a></td>
+        <td><a href="{{route('delete-home' ,$value->id)}}"><button type="button" class="btn btn-danger"  >Delete</button></a>   </td>
+        <td><a href="{{route('edit-home' ,$value->id)}}"><button type="button" class="btn btn-primary" >Edit</button></a>   </td> 
+      </tr> 
+
+      @endforeach 
     </tbody>
   </table>
 
 </body>
 </html>
 @endsection
+
+@if(session('status'))
+    <script>
+        alert('{{ session('status') }}');
+    </script>
+@endif
