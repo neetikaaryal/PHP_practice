@@ -15,11 +15,11 @@ use App\Http\Controllers\TagController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+require __DIR__.'/auth.php';
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home' , HomeController::class . '@home')->name('home');
+Route::get('/home' , HomeController::class . '@home')->name('home')->middleware('auth');
 // 
 // ---------Blog------------
 Route::get('/blog' , HomeController::class . '@blog')->name('blog');
@@ -32,7 +32,7 @@ Route::get('/upload',function(){
     return view('upload');
 });
 
-Route::post('/store-blog', HomeController::class. '@store')->name('store-blog');
+Route::post('/store-blog', HomeController::class. '@store')->name('store-blog')->middleware('auth');
 
 // deletes a post
 Route::get('/delete-home/{id}', HomeController::class .'@delete')->name('delete-home');
@@ -65,10 +65,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-
 //..................Tag..................//
-Route::get('/tag', TagController::class .'@tag')->name('tag');
+Route::get('/tag', TagController::class .'@tag')->name('tag')->middleware('auth');
 Route::post('/tags', TagController::class .'@store')->name('tags.store');
 
 Route::post('/store-tag', TagController::class .'@store')->name('store-tag');
@@ -76,7 +74,7 @@ Route::get('/delete-tag/{id}', TagController::class .'@delete')->name('delete-ta
 Route::get('/edit-tag/{id}', TagController::class .'@edit')->name('edit-tag');
 Route::post('/update-tag/{id}', TagController::class .'@update')->name('update-tag');
 // ..................Type..................//
-Route::get('/type', TypeController::class .'@type')->name('type');
+Route::get('/type', TypeController::class .'@type')->name('type')->middleware('auth');
 Route::post('/add-types', TypeController::class .'@create')->name('add-types');
 Route::post('/types', TypeController::class .'@store')->name('types.store');
 
