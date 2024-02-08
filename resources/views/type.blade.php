@@ -18,7 +18,7 @@
         <input type="text" class="form-control" id="name" name="name" placeholder="Enter type">
     </div>
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button class="button">Submit</button>
 </form>
 <br>
 <h2>Type-list</h2>

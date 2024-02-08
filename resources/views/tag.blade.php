@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Tag</title>
-    <link rel="stylesheet" href="{{asset('mystyle.css')}}" />
+    <!-- <link rel="stylesheet" href="{{asset('mystyle.css')}}" /> -->
 </head>
 <body>
 <form action="{{ route('store-tag') }}" method="post" enctype="multipart/form-data">
@@ -13,7 +13,7 @@
         <label for="tag">Tag:</label>
         <input type="text" class="form-control" id="tag" name="name" placeholder="Enter tag">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button class="button">Submit</button>
 </form>
 <br>
 <h2>Tag-list</h2>
