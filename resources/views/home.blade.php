@@ -19,27 +19,39 @@
 </head>
 <body>
 <div class="container">
-  <h2>Form</h2>
+  <h2 style="color:white">Form</h2>
   <form action="{{ route('store-blog') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" placeholder="Title" name="title">
+      <input type="text" class="form-control" id="title" placeholder="Title" name="title" value="{{ old('title') }}" >
+      @error('title')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror          
     </div>
 
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" placeholder="Description" name="description">
+      <input type="text" class="form-control" id="description" placeholder="Description" name="description" value="{{ old('title') }}">
+      @error('description')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
     </div>
 
     <div class="form-group">
       <label for="author">Author</label>
-      <input type="text" class="form-control" id="author" placeholder="Name" name="author">
+      <input type="text" class="form-control" id="author" placeholder="Name" name="author" value="{{old('author')}}">
+      @error('author')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
     </div>
 
     <div class="form-group">
       <label for="image">Feature Image</label>
       <input type="file" class="form-control" id="image" placeholder="Image" name="image" >
+      @error('image')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
     </div>
 
     <div class="form-group">
@@ -51,7 +63,9 @@
         <option value="{{$tag->id}}">{{$tag->name}}</option>
         @endforeach
       </select>
-      
+      @error('tag')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
     </div>
 
 
@@ -64,6 +78,9 @@
       <option value="{{$type->id}}">{{$type->name}}</option>
        @endforeach
       </select>
+      @error('type')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
     </div>
 
     <div class="form-group">
@@ -72,6 +89,10 @@
         <option value="draft">Draft</option>
         <option value="published">Published</option>
       </select>
+      @error('status')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
+    
     </div>
     <!-- .........body -->
     <!-- <div class="form-group">
@@ -82,7 +103,7 @@
     <!-- <div>
         <textarea name="content"></textarea>
     </div> --> 
-        <button>Send</button>
+        <button class="btn btn-primary" >Send</button>
 
   </div>   
 

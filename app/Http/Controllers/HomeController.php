@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 use App\Models\Posts;
 use App\Models\Type;
 use App\Models\Tag;
@@ -13,18 +14,18 @@ use Illuminate\Support\Facades\Storage;
 class HomeController extends Controller
 {
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         try {
   
-        $user = new Posts;
-        $user->title = $request->title;
-        $user->description = $request->description;
-        $user->author = $request->author;
-        // $user->image = $request->image;
-        $user->tag = $request->tag;
-        $user->type = $request->type;
-        $user->status = $request->status;
+          $user = new Posts;
+          $user->title = $request->title;
+          $user->description = $request->description;
+          $user->author = $request->author;
+          // $user->image = $request->image;
+          $user->tag = $request->tag;
+          $user->type = $request->type;
+          $user->status = $request->status;
         
         if($request->hasFile('image')) {
           
