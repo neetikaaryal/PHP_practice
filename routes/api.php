@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\HomeController;
-
+use Laravel\Sanctum\HasApiTokens;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,3 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/data', [ApiController::class, 'getData']);
+ 
+Route::post('/tokens/create', function (Request $request) {
+    $token = $request->user()->createToken($request->token_name);
+    return ['token' => $token->plainTextToken];
+});
