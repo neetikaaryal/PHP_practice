@@ -14,6 +14,10 @@
         plugins: 'code',
         toolbar: 'bold italic code'
     });</script> -->
+
+<!-- text-editor -->
+  <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+
 </head>
 @extends('dashboard')
 
@@ -24,7 +28,7 @@
     @csrf
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" placeholder="Title" name="title" value="{{ old('title') }}" >
+      <input type="text" class="form-control" id="title" placeholder="Title" name="title"  >
       @error('title')
         <div class="alert alert-danger">{{ $message }}</div>
       @enderror          
@@ -32,7 +36,7 @@
 
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" placeholder="Description" name="description" value="{{ old('title') }}">
+      <textarea class="form-control" id="description" placeholder="Description" name="description" value="{{ old('title') }}"></textarea>
       @error('description')
         <div class="alert alert-danger">{{ $message }}</div>
       @enderror
@@ -112,23 +116,18 @@
     <div><?= $purifier->purify($_POST['content']) ?></div>
 
     <?php endif; ?>
-    <!-- /bodyend -->
-  
-
-  <!-- file upload -->
-<!-- <div class="mb-3">
-  <label for="formFile" class="form-label">Upload File:</label>
-  <input class="form-control" type="file" id="formFile">
-  <button type="submit" class="btn btn-default">Upload</button>
-</div> -->
+ 
   </form>
-
+<script>
+  ClassicEditor
+      .create( document.querySelector( '#description' ) )
+      .catch( error => {
+          console.error( error );
+      } );
+</script>
   <!-- blog list -->
     <h2>Blog List</h2>
-    <!-- <div > 
-    <a href="/create">
-        <button type="button" class="btn btn-primary" >Create</button>
-    </a>         -->
+   
 
     <table class="table">
     <thead>
@@ -185,3 +184,4 @@
       alert('{{ session('error') }}');
   </script> 
 @endif
+
