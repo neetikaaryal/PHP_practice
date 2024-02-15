@@ -9,12 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-      <script>tinymce.init({
-        selector:'textarea',
-        menubar: false,
-        plugins: 'code',
-        toolbar: 'bold italic code'
-    });</script>
+
 </head>
 <body>
 <div class="container">
@@ -49,7 +44,7 @@
       <option value="">Select Tag</option>
 
         @foreach($tags as $tag)
-        <option value="{{$tag->id}}">{{$tag->name}}</option>
+      <option value="{{$tag->id}}" {{ $tag->id == $post->tag_id ? 'selected' : '' }}>{{$tag->name}}</option>
         @endforeach
       </select>
       
@@ -62,7 +57,7 @@
       <option value="">Select Tag</option>
 
       @foreach($types as $type)
-      <option value="{{$type->id}}">{{$type->name}}</option>
+      <option value="{{$type->id}}" {{ $type->id == $post->type_id ? 'selected' : '' }}>{{$type->name}}</option>
        @endforeach
       </select>
     </div>
