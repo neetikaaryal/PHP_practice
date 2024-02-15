@@ -41,6 +41,10 @@ Route::get('/delete-home/{id}', HomeController::class .'@delete')->name('delete-
 // returns the form for editing a post
 Route::get('/edit-home/{id}', HomeController::class .'@edit')->name('edit-home');
 
+// updates a post
+Route::post('/update-home/{id}', HomeController::class .'@update')->name('update-home');
+//..................Status..................//
+Route::get('/changeStatus/{id}', HomeController::class . '@changeStatus')->name('changeStatus');
 
 // returns the home page with all posts
 // Route::get('/', HomeController::class .'@index')->name('posts.index');
@@ -51,8 +55,7 @@ Route::post('/posts', HomeController::class .'@store')->name('posts.store');
 // returns a page that shows a full post
 Route::get('/posts/{post}', HomeController::class .'@show')->name('posts.show');
 
-// updates a post
-Route::post('/update-home/{id}', HomeController::class .'@update')->name('update-home');
+
 
 //..........Auth..............//
 
@@ -85,8 +88,7 @@ Route::get('/delete-type/{id}', TypeController::class .'@delete')->name('delete-
 Route::get('/edit-type/{id}', TypeController::class .'@edit')->name('edit-type');
 Route::post('/update-type/{id}', TypeController::class .'@update')->name('update-type');
 
-//..................Status..................//
-Route::get('/changeStatus/{id}', HomeController::class . '@changeStatus')->name('changeStatus');
+
 
 //..................Custom Auth..................//
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
