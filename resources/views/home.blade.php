@@ -17,7 +17,11 @@
 
 <!-- text-editor -->
   <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
-
+ <style>
+                .ck-editor__editable {
+                    min-height: 100px;
+                }
+    </style>
 </head>
 @extends('dashboard')
 
